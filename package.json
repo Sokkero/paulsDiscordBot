@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sokkernr1/paulsDiscordBot/issues"
   },
-  "homepage": "https://github.com/Sokkernr1/paulsDiscordBot#readme"
+  "homepage": "https://github.com/Sokkernr1/paulsDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  }
 }
