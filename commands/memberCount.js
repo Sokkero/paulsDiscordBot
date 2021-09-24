@@ -2,6 +2,8 @@ module.exports = {
     name: 'memberCount',
     description: "this counts the amount of members in a role",
     execute(message, args){
+		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the memberCount command.');
+
 		if(args.join(' ') === ''){
 			message.channel.send('-rolecount {argument}\n\n**-rolecount:** Prints the amount of users in this server with a specific role\n**{argument}:** The name of the role whos members are wished to be counted.');
 		}
@@ -13,9 +15,12 @@ module.exports = {
 				return;
 			}
 			else{
-				let roleCount = message.guild.roles.cache.get(role.id).members.size;
-	
-				message.channel.send('Members with this role: ' + roleCount);
+				let count = 0;
+				message.guild.roles.cache.get(role.id).members.map(() =>{
+					count++;
+				});
+
+				message.channel.send('Members with this role: ' + count);
 			}
 		}
     }

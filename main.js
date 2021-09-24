@@ -1,7 +1,3 @@
-//-help command
-//@bot give prefix
-
-
 const Discord = require('discord.js');
 const config = require('./config.json');
 
@@ -34,12 +30,20 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', message => {
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
-
+	
+	if(message.author.bot) return;
+	
     const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
+	
+	if(message.mentions.has(client.user) && !message.author.bot){
+		client.commands.get('pinged').execute(message, args);
+	}
+	else if(!message.content.startsWith(prefix)) return;
 
-    if(command === 'ping'){
+	if(command === 'help'){
+		client.commands.get('help').execute(message, args);
+	} else if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     } else if(command === 'rolecount'){
 		client.commands.get('memberCount').execute(message, args);

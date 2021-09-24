@@ -2,6 +2,8 @@ module.exports = {
     name: 'schedule',
     description: 'this returns a specific schedule as a png or pdf',
     execute(message, args){
+		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the schedule command.');
+		
 		const fs = require('fs');
 		const regExPattern = /.*(?=it)/g;
 
