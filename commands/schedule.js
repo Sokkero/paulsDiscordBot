@@ -3,18 +3,22 @@ module.exports = {
     description: 'this returns a specific schedule as a png or pdf',
     execute(message, args){
 		const fs = require('fs');
+		const regExPattern = /.*(?=it)/g;
 
         if(args[1] && args[1].toLowerCase() === 'download' ){
 			if(args[0].toLowerCase() === 'me'){
 				let sendFile = false;
 				
 				message.member.roles.cache.map(role => {
-					if(fs.existsSync(`schedules/download/${role.name.toLowerCase()}.pdf`)){
+
+					let roleName = role.name.toLowerCase().replace(regExPattern, '');
+
+					if(fs.existsSync(`schedules/download/${roleName}.pdf`)){
 						sendFile = true;
 						message.channel.send(`You have the role of class ${role.name} here is your schedule as a pdf:`);
 						message.channel.send({
 							files: [{
-								attachment: `schedules/download/${role.name.toLowerCase()}.pdf`,
+								attachment: `schedules/download/${roleName}.pdf`,
 							}]
 						});
 					}
@@ -45,14 +49,18 @@ module.exports = {
 		else{
 			if(args[0] && args[0].toLowerCase() === 'me'){
 				let sendFile = false;
+
 				
 				message.member.roles.cache.map(role => {
-					if(fs.existsSync(`schedules/image/${role.name.toLowerCase()}.png`)){
+
+					let roleName = role.name.toLowerCase().replace(regExPattern, '');
+
+					if(fs.existsSync(`schedules/image/${roleName}.png`)){
 						sendFile = true;
 						message.channel.send(`You have the role of class ${role.name} here is your schedule as a png:`);
 						message.channel.send({
 							files: [{
-								attachment: `schedules/image/${role.name.toLowerCase()}.png`,
+								attachment: `schedules/image/${roleName}.png`,
 							}]
 						});
 					}

@@ -1,3 +1,7 @@
+//-help command
+//@bot give prefix
+
+
 const Discord = require('discord.js');
 const config = require('./config.json');
 
