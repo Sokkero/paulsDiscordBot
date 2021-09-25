@@ -11,7 +11,7 @@ const client = new Discord.Client({
 	]
  });
 
-const prefix = '-';
+const prefix = config.prefix;
 
 const fs = require('fs');
 const schedule = require('./commands/schedule');
