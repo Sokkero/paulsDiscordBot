@@ -1,11 +1,10 @@
 module.exports = {
     name: 'schedule',
     description: 'this returns a specific schedule as a png or pdf',
-    execute(message, args, config){
+    execute(message, args, conf){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the schedule command.');
 		
 		const fs = require('fs');
-		const conf = require('../config.json');
 
 		const regExPattern = new RegExp(conf.regExPattern, conf.regExFlags);
 

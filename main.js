@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
+let config = require('./config.json');
 
 const intents = new Discord.Intents("GUILDS", "GUILDS_MESSAGES");
 
@@ -12,10 +12,7 @@ const client = new Discord.Client({
 	]
  });
 
-const prefix = config.prefix;
-
 const fs = require('fs');
-const schedule = require('./commands/schedule');
 
 client.commands = new Discord.Collection();
 
@@ -34,8 +31,17 @@ client.on('messageCreate', message => {
 	
 	if(message.author.bot) return;
 	
+	if(fs.existsSync(`guildConfigs/${message.guild.id}.json`)){
+		config = require(`./guildConfigs/${message.guild.id}.json`);
+	}
+	else{
+		config = require('./config.json');
+	}
+
+	prefix = config.prefix;
+
     const args = message.content.slice(prefix.length).split(' ');
-    const command = args.shift().toLowerCase();
+    const command = args.shift(prefix.length).toLowerCase();
 	
 	if(message.mentions.has(client.user) && !message.author.bot){
 		client.commands.get('pinged').execute(message, config);
@@ -50,6 +56,13 @@ client.on('messageCreate', message => {
 		client.commands.get('memberCount').execute(message, args, config);
 	} else if(command === 'schedule'){
 		client.commands.get('schedule').execute(message, args, config);
+	} else if(command === 'settings'){
+		if(message.member.permissions.has('ADMINISTRATOR')){
+			client.commands.get('settings').execute(message, args, config);
+		}
+		else{
+			message.channel.send('This command is only available for server admins!');
+		}
 	}
 });
 
