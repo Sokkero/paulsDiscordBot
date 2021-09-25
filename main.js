@@ -8,6 +8,7 @@ const client = new Discord.Client({
 		Discord.Intents.FLAGS.GUILDS,
 		Discord.Intents.FLAGS.GUILD_MESSAGES,
 		Discord.Intents.FLAGS.GUILD_MEMBERS,
+		Discord.Intents.FLAGS.GUILD_PRESENCES,
 	]
  });
 
@@ -37,18 +38,18 @@ client.on('messageCreate', message => {
     const command = args.shift().toLowerCase();
 	
 	if(message.mentions.has(client.user) && !message.author.bot){
-		client.commands.get('pinged').execute(message, args);
+		client.commands.get('pinged').execute(message, config);
 	}
 	else if(!message.content.startsWith(prefix)) return;
 
 	if(command === 'help'){
-		client.commands.get('help').execute(message, args);
+		client.commands.get('help').execute(message, config);
 	} else if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
+        client.commands.get('ping').execute(message);
     } else if(command === 'rolecount'){
-		client.commands.get('memberCount').execute(message, args);
+		client.commands.get('memberCount').execute(message, args, config);
 	} else if(command === 'schedule'){
-		client.commands.get('schedule').execute(message, args);
+		client.commands.get('schedule').execute(message, args, config);
 	}
 });
 
