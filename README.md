@@ -4,10 +4,10 @@
 	create a config.json file like this:
 
 	{
-	"token": "YOUR_TOKEN_HERE",
-	"prefix": "YOUR_PREFERED_PREFIX"
-	"regExPattern": ".*(?=it)", (or a different regEx pattern of your choosing but I would recommend using this one)
-	"regExFlags": "g" (or different regEx flags of your choosing but I would recommend using this/these)
+		"token": "YOUR_TOKEN_HERE",
+		"prefix": "YOUR_PREFERED_PREFIX",
+		"regExPattern": ".*(?=it)",
+		"regExFlags": "g"
 	}
 
 
