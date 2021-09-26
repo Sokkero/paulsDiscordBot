@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
-let config = require('./config.json');
-
-const intents = new Discord.Intents("GUILDS", "GUILDS_MESSAGES");
+const config = require('./config.json');
 
 const client = new Discord.Client({ 
     intents: [
@@ -32,21 +30,24 @@ client.on('messageCreate', message => {
 	if(message.author.bot) return;
 	
 	if(fs.existsSync(`guildConfigs/${message.guild.id}.json`)){
-		config = require(`./guildConfigs/${message.guild.id}.json`);
+		let guildConfig = require(`./guildConfigs/${message.guild.id}.json`);
+		prefix = guildConfig.prefix;
 	}
 	else{
-		config = require('./config.json');
+		prefix = config.prefix;
 	}
-
-	prefix = config.prefix;
-
-    const args = message.content.slice(prefix.length).split(' ');
-    const command = args.shift(prefix.length).toLowerCase();
 	
 	if(message.mentions.has(client.user) && !message.author.bot){
 		client.commands.get('pinged').execute(message, config);
 	}
 	else if(!message.content.startsWith(prefix)) return;
+	
+	const args = message.content.slice(prefix.length).split(' ');
+	const command = args.shift().toLowerCase();
+
+	console.log(command);
+	console.log(args);
+	console.log(message);
 
 	if(command === 'help'){
 		client.commands.get('help').execute(message, config);

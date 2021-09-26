@@ -17,7 +17,7 @@ module.exports = {
 			guildConfig = require(`../guildConfigs/${guild}.json`);
 		}
 		else{
-			guildConfig = standardConfig;
+			guildConfig = Object.assign({}, standardConfig);
 		}
 
 		if(args[0] === undefined){
@@ -60,14 +60,14 @@ function writeGuildJSON(message){
 
 	let logMessage;
 
-	if(fs.existsSync(`guildconfigs/${guild}.json`)){
+	if(fs.existsSync(`guildcConfigs/${guild}.json`)){
 		logMessage = `Changed config.json for guildId ${guild}`;
 	}
 	else{
 		logMessage = `Created config.json for guildId ${guild}`;
 	}
  
-	fs.writeFileSync(`guildconfigs/${guild}.json`, jsonContent, 'utf8', function (err) {
+	fs.writeFileSync(`guildConfigs/${guild}.json`, jsonContent, { flag: 'w+' }, function (err) {
     	if (err) {
 			message.channel.send('An error occurred while writing the file...');
         	console.log(`An error occured while writing JSON Object to File. GuildId: ${guild}`);
