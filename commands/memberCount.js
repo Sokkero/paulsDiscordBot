@@ -27,16 +27,17 @@ module.exports = {
 				args.pop();
 
 				let role = message.guild.roles.cache.find(role => role.name === args.join(' '));
-				let memberString = message.guild.roles.cache.get(role.id).members.map(m => m.user.username);
-
-				memberString=memberString.sort();
-				memberString=memberString.join('\n');
 	
 				if(!role){
 					message.channel.send('No role with the name "' + args.join(' ') + '" has been found...\nCheck for exact spelling... Discord can be a bitch about that 😐');
 					return;
 				}
 				else{
+					let memberString = message.guild.roles.cache.get(role.id).members.map(m => m.user.username);
+
+					memberString=memberString.sort();
+					memberString=memberString.join('\n');
+
 					message.channel.send('This role has ' + message.guild.roles.cache.get(role.id).members.size + ' members!\n\n __The users with this role are:__\n' + memberString);
 				}
 			}
