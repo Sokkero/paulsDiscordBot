@@ -89,7 +89,7 @@ module.exports = {
 				}
 			}
 			else if(args.join(' ').toLowerCase() === ''){
-				message.channel.send(`${config.prefix}schedule {argument 1} {argument 2}\n\n**${config.prefix}schedule:** returns a requested schedule as a .pdf or .png file\n**{argument 1}:** defines which schedule is being requested\n(**"me"** -> bot will check your roles and find you schedule II **"IT-1o"** -> will return the schedule for IT-1o)\n**{argument 2}:** optional argument, "download" can be passed in here to make the bot send you your schedule as a .pdf file instead of .png.`);
+				message.channel.send(`${conf.prefix}schedule {argument 1} {argument 2}\n\n**${conf.prefix}schedule:** returns a requested schedule as a .pdf or .png file\n**{argument 1}:** defines which schedule is being requested\n(**"me"** -> bot will check your roles and find you schedule II **"IT-1o"** -> will return the schedule for IT-1o)\n**{argument 2}:** optional argument, "download" can be passed in here to make the bot send you your schedule as a .pdf file instead of .png.`);
 			}
 		}
     }
