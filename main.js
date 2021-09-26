@@ -45,10 +45,6 @@ client.on('messageCreate', message => {
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
 
-	console.log(command);
-	console.log(args);
-	console.log(message);
-
 	if(command === 'help'){
 		client.commands.get('help').execute(message, config);
 	} else if(command === 'ping'){
