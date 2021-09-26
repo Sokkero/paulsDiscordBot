@@ -14,7 +14,7 @@ module.exports = {
 		changed = false;
 
 		if(fs.existsSync(`guildConfigs/${guild}.json`)){
-			guildConfig = require(`../guildConfigs/${guild}.json`);
+			guildConfig = Object.assign({}, require(`../guildConfigs/${guild}.json`));
 		}
 		else{
 			guildConfig = Object.assign({}, standardConfig);
@@ -73,8 +73,9 @@ function writeGuildJSON(message){
         	console.log(`An error occured while writing JSON Object to File. GuildId: ${guild}`);
         	return console.log(err);
     	}
-    	console.log(logMessage);
 	});
+	changed = false;
+	console.log(logMessage);
 }
 
 function resetConfig(message){
@@ -95,9 +96,12 @@ function changePrefix(message, args){
 	}
 	else{
 		if(guildConfig.prefix !== args[0]){
-			guildConfig.prefix = args[0];
+			guildConfig.prefix = String(args[0]);
 			changed = true;
 			message.channel.send('Prefix successfully changed!');
+		}
+		else{
+			message.channel.send('This is already the set prefix!');
 		}
 	}
 }
@@ -110,9 +114,12 @@ function changeRegEx(message, args){
 		message.channel.send('Changing the regEx is annoying and tedious... I hope you know what you are doing...\nJust in case, here is the standart setting: ' + standardConfig.regExPattern);
 		
 		if(guildConfig.regExPattern !== args[0]){
-			guildConfig.regExPattern = args[0];
+			guildConfig.regExPattern = String(args[0]);
 			changed = true;
 			message.channel.send('RegEx successfully changed!');
+		}
+		else{
+			message.channel.send('This is already the set regEx!');
 		}
 	}
 }
@@ -125,9 +132,12 @@ function changeRegExFlag(message, args){
 		message.channel.send('Changing the regEx flags is annoying and tedious... I hope you know what you are doing...\nJust in case, here is the standart setting: ' + standardConfig.regExFlags);
 		
 		if(guildConfig.regExFlags !== args[0]){
-			guildConfig.regExFlags = args[0];
+			guildConfig.regExFlags = String(args[0]);
 			changed = true;
 			message.channel.send('RegEx flags successfully changed!');
+		}
+		else{
+			message.channel.send('These are already the set regEx Flags!');
 		}
 	}
 }

@@ -30,7 +30,8 @@ client.on('messageCreate', message => {
 	if(message.author.bot) return;
 	
 	if(fs.existsSync(`guildConfigs/${message.guild.id}.json`)){
-		let guildConfig = require(`./guildConfigs/${message.guild.id}.json`);
+		delete require.cache[require.resolve(`./guildConfigs/${message.guild.id}.json`)];
+		let guildConfig = Object.assign({}, require(`./guildConfigs/${message.guild.id}.json`));
 		prefix = guildConfig.prefix;
 	}
 	else{
