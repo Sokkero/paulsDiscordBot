@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
+let config = require('./config.json');
 
 const client = new Discord.Client({ 
     intents: [
@@ -31,12 +31,13 @@ client.on('messageCreate', message => {
 	
 	if(fs.existsSync(`guildConfigs/${message.guild.id}.json`)){
 		delete require.cache[require.resolve(`./guildConfigs/${message.guild.id}.json`)];
-		let guildConfig = Object.assign({}, require(`./guildConfigs/${message.guild.id}.json`));
-		prefix = guildConfig.prefix;
+		config = Object.assign({}, require(`./guildConfigs/${message.guild.id}.json`));
 	}
 	else{
-		prefix = config.prefix;
+		config = require('./config.json');
 	}
+
+	prefix = config.prefix;
 	
 	if(message.mentions.has(client.user) && !message.author.bot){
 		client.commands.get('pinged').execute(message, config);
