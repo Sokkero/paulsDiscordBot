@@ -27,7 +27,7 @@ client.once('ready', () => {
 
 client.on('messageCreate', message => {
 	
-	if(message.author.bot) return;
+	if(message.author.bot || message.mentions.everyone === true) return;
 	
 	if(fs.existsSync(`guildConfigs/${message.guild.id}.json`)){
 		delete require.cache[require.resolve(`./guildConfigs/${message.guild.id}.json`)];

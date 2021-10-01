@@ -28,7 +28,7 @@ module.exports = {
 				});
 
 				if(!sendFile){
-					message.channel.send('Could not find any file relating to any of you server roles... Please check you applied server roles and/or contact a server admin or "Sokker - Paulo".');
+					message.channel.send('Could not find any file relating to any of your server roles... Please check you applied server roles and/or contact a server admin or "Sokker - Paulo".');
 					message.channel.send('List is incomplete: If you wish to contribute and add a schedule, please send a .pdf schedule as well as the class name to "Sokker - Paulo".');
 				}
 			}else{
@@ -70,7 +70,7 @@ module.exports = {
 				});
 
 				if(!sendFile){
-					message.channel.send('Could not find any file relating to any of you server roles... Please check you applied server roles and/or contact a server admin or "Sokker - Paulo".');
+					message.channel.send('Could not find any file relating to any of your server roles... Please check you applied server roles and/or contact a server admin or "Sokker - Paulo".');
 					message.channel.send('List is incomplete: If you wish to contribute and add a schedule image, please send a .png schedule image as well as the class name to "Sokker - Paulo".');
 				}
 			}
