@@ -6,8 +6,8 @@ module.exports = {
 
     let help_msg = "👋 Hayo, the commands which I can help you with are:\n";
 
-    for(command of commands) {
-      help_msg += `\n${config.prefix}${command.name}: ${command.description}`;
+    for(const [_, command] of commands) {
+      help_msg += `\n\`${config.prefix}${command.name}\`: ${command.description}`;
     }
 
     help_msg += `\n\nI am still missing some data regarding the schedules, so If you want me to add any, just message "Sokker - Paulo#0001" here on discord! 👀`;
