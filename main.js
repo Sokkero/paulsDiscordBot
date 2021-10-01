@@ -48,7 +48,7 @@ client.on('messageCreate', message => {
 	const command = args.shift().toLowerCase();
 
 	if(command === 'help'){
-		client.commands.get('help').execute(message, config);
+		client.commands.get('help').execute(message, config, client.commands);
 	} else if(command === 'ping'){
         client.commands.get('ping').execute(message);
     } else if(command === 'rolecount'){

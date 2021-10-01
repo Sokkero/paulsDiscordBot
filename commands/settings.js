@@ -6,7 +6,7 @@ let changed;
 
 module.exports = {
     name: 'settings',
-    description: 'this command is for admins to configure the config.json',
+    description: 'this command allowes server admins to configure this bot to their liking 🧑‍🔧',
     execute(message, args, currentConfig){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the settings command. ' + args[0]);
 

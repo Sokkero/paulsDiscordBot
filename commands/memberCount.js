@@ -1,6 +1,6 @@
 module.exports = {
     name: 'memberCount',
-    description: "this counts the amount of members in a role",
+    description: "Use this command to let me tell you the members of a certain role 📊",
     execute(message, args, config){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the memberCount command.');
 
