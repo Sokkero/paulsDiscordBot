@@ -55,8 +55,8 @@ client.on('messageCreate', message => {
 		client.commands.get('memberCount').execute(message, args, config);
 	} else if(command === 'schedule'){
 		client.commands.get('schedule').execute(message, args, config);
-	} else if(command === 'schedule'){
-		client.commands.get('mensa').execute(message);
+	} else if(command === 'canteen'){
+		client.commands.get('canteen').execute(message);
 	} else if(command === 'settings'){
 		if(message.member.permissions.has('ADMINISTRATOR')){
 			client.commands.get('settings').execute(message, args, config);
