@@ -48,11 +48,11 @@ client.on('messageCreate', message => {
 	const command = args.shift().toLowerCase();
 
 	if(command === 'help'){
-		client.commands.get('help').execute(message, config);
+		client.commands.get('help').execute(message, config, client.commands);
 	} else if(command === 'ping'){
         client.commands.get('ping').execute(message);
     } else if(command === 'rolecount'){
-		client.commands.get('memberCount').execute(message, args, config);
+		client.commands.get('rolecount').execute(message, args, config);
 	} else if(command === 'schedule'){
 		client.commands.get('schedule').execute(message, args, config);
 	} else if(command === 'canteen'){

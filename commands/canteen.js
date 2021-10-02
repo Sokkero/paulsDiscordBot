@@ -1,6 +1,6 @@
 module.exports = {
     name: 'canteen',
-    description: "Canteen plan for this week",
+    description: "Will give you the canteen plan for this week 🍕",
     execute(message) {
         console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the canteen command.');
 

@@ -1,6 +1,6 @@
 module.exports = {
     name: 'schedule',
-    description: 'this returns a specific schedule as a png or pdf',
+    description: 'With this command I will give you your school schedule either as a pdf or png, depending on your preference 🗓️',
     execute(message, args, conf){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the schedule command.');
 		
