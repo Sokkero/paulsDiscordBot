@@ -1,6 +1,6 @@
 module.exports = {
     name: 'pinged',
-    description: "this is some info that is display when the bot is pinged",
+    description: "This is some info that is displayed when the bot is pinged 🏓",
     execute(message, config){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' pinged the bot.');
 
