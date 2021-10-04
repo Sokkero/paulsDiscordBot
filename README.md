@@ -1,9 +1,10 @@
 # paulsDiscordBot
 
 Rules for contribution:
-	1. Indents = Tabs, size 4 (for VScode I can recommend the 'EditorConfig' extension)
-	2. This bot is exclusively in english
-	3. Do NOT push any tokens or 'config.json' files 
+	1. Indents = Tabs (for VScode I can recommend the 'EditorConfig' extension)
+	2. There are a few style rules which are all defined by ESLint (checkout the .eslintrc.json file for more information)
+	3. This bot is exclusively in english
+	4. Do NOT push any tokens or 'config.json' files 
 
 <----------------------------------------------->
 
