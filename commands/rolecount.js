@@ -1,7 +1,7 @@
 module.exports = {
-    name: 'rolecount',
-    description: "Use this command to let me tell you the members of a certain role 📊",
-    execute(message, args, config){
+	name: 'rolecount',
+	description: "Use this command to let me tell you the members of a certain role 📊",
+	execute(message, args, config){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the memberCount command.');
 
 		const conf = require('../config.json');
@@ -42,5 +42,5 @@ module.exports = {
 				}
 			}
 		}
-    }
-}
+	}
+};

@@ -14,4 +14,4 @@ module.exports = {
 
     	message.channel.send(help_msg);
   	}
-}
+};
