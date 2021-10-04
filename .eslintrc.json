@@ -1,0 +1,16 @@
+{
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+		"array-bracket-spacing": 1,
+		"comma-spacing": [2, { "before": false, "after": true }],
+		"comma-style": [2, "last"],
+		"indent": [2, "tab"],
+		"jsx-quotes": [2, "prefer-single"],
+		"semi": [2, "always"]
+    }
+}
