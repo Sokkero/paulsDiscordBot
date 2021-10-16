@@ -5,9 +5,9 @@ let guildConfig;
 let changed;
 
 module.exports = {
-    name: 'settings',
-    description: 'this command allowes server admins to configure this bot to their liking 🧑‍🔧',
-    execute(message, args, currentConfig){
+	name: 'settings',
+	description: 'this command allowes server admins to configure this bot to their liking 🧑‍🔧',
+	execute(message, args, currentConfig){
 		console.log('User ' + message.author.username + ' // ' + message.author.id + ' used the settings command. ' + args[0]);
 
 		guild = message.guild.id;
@@ -24,36 +24,36 @@ module.exports = {
 			args[0] = '';
 		}
 		
-        switch (args[0].toLowerCase()){
-			case 'reset':
-				args.shift();
-				resetConfig(message);
+		switch (args[0].toLowerCase()){
+		case 'reset':
+			args.shift();
+			resetConfig(message);
 			break;
-			case 'prefix':
-				args.shift();
-				changePrefix(message, args);
+		case 'prefix':
+			args.shift();
+			changePrefix(message, args);
 			break;
-			case 'regex':
-				args.shift();
-				changeRegEx(message, args);
+		case 'regex':
+			args.shift();
+			changeRegEx(message, args);
 			break;
-			case 'regexflags':
-				args.shift();
-				changeRegExFlag(message, args);
+		case 'regexflags':
+			args.shift();
+			changeRegExFlag(message, args);
 			break;
-			case '':
-				provideHelp(message, currentConfig);
+		case '':
+			provideHelp(message, currentConfig);
 			break;
-			default:
-				message.channel.send(`Invalid argument "${args[0]}"...`);
+		default:
+			message.channel.send(`Invalid argument "${args[0]}"...`);
 			break;
 		}
 
 		if(changed){
 			writeGuildJSON();
 		}
-    }
-}
+	}
+};
 
 function writeGuildJSON(message){
 	let jsonContent = JSON.stringify(guildConfig);
@@ -108,7 +108,7 @@ function changePrefix(message, args){
 
 function changeRegEx(message, args){
 	if(args[0] === undefined){
-		message.channel.send('The regEx helps filtering out unneeded information within channel and role names. I would recommend not to change this setting...')
+		message.channel.send('The regEx helps filtering out unneeded information within channel and role names. I would recommend not to change this setting...');
 	}
 	else{
 		message.channel.send('Changing the regEx is annoying and tedious... I hope you know what you are doing...\nJust in case, here is the standart setting: ' + standardConfig.regExPattern);
@@ -126,7 +126,7 @@ function changeRegEx(message, args){
 
 function changeRegExFlag(message, args){
 	if(args[0] === undefined){
-		message.channel.send('The regEx flags help filtering out unneeded information within channel and role names. I would recommend not to change this setting...')
+		message.channel.send('The regEx flags help filtering out unneeded information within channel and role names. I would recommend not to change this setting...');
 	}
 	else{
 		message.channel.send('Changing the regEx flags is annoying and tedious... I hope you know what you are doing...\nJust in case, here is the standart setting: ' + standardConfig.regExFlags);
