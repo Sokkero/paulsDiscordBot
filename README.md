@@ -1,14 +1,12 @@
 # paulsDiscordBot
 
-##Rules for contribution:
+## Rules for contribution:
 1. Indents = Tabs (for VScode I can recommend the 'EditorConfig' extension)
 2. There are a few style rules which are all defined by ESLint (checkout the .eslintrc.json file for more information)
 3. This bot is exclusively in english
 4. Do NOT push any tokens or 'config.json' files 
 
-<----------------------------------------------->
-
-##Notes and fyi's
+## Notes and fyi's
 
 -> This project is based on nodeJS
 
