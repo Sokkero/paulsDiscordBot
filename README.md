@@ -14,14 +14,13 @@
 
 -> 	Before being able to start the bot,
 	create a 'config.json' file like this in the root dir:
-```
+
 	{
 		"token": "YOUR_TOKEN_HERE",
 		"prefix": "YOUR_PREFERED_PREFIX",
 		"regExPattern": ".*(?=it)",
 		"regExFlags": "g"
 	}
-	```
 
 -> Also create a 'guildConfigs' folder in the root dir
 
